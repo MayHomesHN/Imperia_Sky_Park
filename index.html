@@ -2135,6 +2135,44 @@ async function sendLeadTop(){
 
 }
 
+function updatePhoneNumber() {
+    const params = new URLSearchParams(window.location.search);
+    const phone = params.get('phone');
+    
+    if (phone) {
+        const formattedPhone = phone.replace(/(\d{4})(\d{3})(\d{3})/, '$1.$2.$3');
+        
+        document.querySelectorAll('[href*="0869667786"], [href*="tel:0869667786"], [href*="zalo.me/0869667786"]').forEach(el => {
+            el.href = el.href.replace(/0869667786/g, phone);
+        });
+        
+        document.querySelectorAll('[href*="0977871001"], [href*="tel:0977871001"], [href*="zalo.me/0977871001"]').forEach(el => {
+            el.href = el.href.replace(/0977871001/g, phone);
+        });
+        
+        document.querySelectorAll('[href*="0345487298"], [href*="tel:0345487298"], [href*="zalo.me/0345487298"]').forEach(el => {
+            el.href = el.href.replace(/0345487298/g, phone);
+        });
+        
+        const phoneText = document.querySelector('.n-text-tell');
+        if (phoneText) phoneText.textContent = formattedPhone;
+        
+        document.querySelectorAll('*').forEach(el => {
+            if (el.childNodes.length === 1 && el.textContent.includes('0869667786')) {
+                el.textContent = el.textContent.replace(/0869667786/g, phone);
+            }
+            if (el.childNodes.length === 1 && el.textContent.includes('0977871001')) {
+                el.textContent = el.textContent.replace(/0977871001/g, phone);
+            }
+            if (el.childNodes.length === 1 && el.textContent.includes('0345487298')) {
+                el.textContent = el.textContent.replace(/0345487298/g, phone);
+            }
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', updatePhoneNumber);
+
 </script>
 
 <style>
