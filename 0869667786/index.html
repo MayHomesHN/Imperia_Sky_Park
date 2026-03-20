@@ -452,6 +452,16 @@ background: linear-gradient(
   background: #fff !important;
 }
 
+/* Hide logo in transparent header (on top of banner) */
+.header.transparent #logo img {
+  opacity: 0;
+}
+
+/* Show logo when header becomes sticky */
+.stuck #logo img {
+  opacity: 1 !important;
+}
+
 /* Make navigation menu items more visible */
 .header-nav-main .nav-top-link {
   color: #fff !important;
