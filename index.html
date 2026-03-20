@@ -487,6 +487,17 @@ background: linear-gradient(
   text-shadow: none;
   border: 1px solid #ddd;
 }
+
+/* Ensure nav items stay inside sticky header */
+.stuck .header-nav-main {
+  display: flex;
+  align-items: center;
+}
+
+.stuck .header-nav-main .nav-top-link {
+  line-height: 50px;
+  padding: 0 8px;
+}
 </style>
 
           <!-- Left Elements -->
